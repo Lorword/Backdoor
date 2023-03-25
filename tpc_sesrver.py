@@ -35,5 +35,5 @@ class Listener:
             result = self.ejecutar_remoto(command)
             print(result)
 
-escuchar = Listener("192.168.1.8", 4444)
+escuchar = Listener("ip", 4444)
 escuchar.run()

